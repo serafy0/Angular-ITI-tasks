@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { ItemService } from '../../services/item.service';
 import { Item } from '../../models/item.interface';
 @Component({
   selector: 'app-item',
@@ -10,6 +9,7 @@ import { Item } from '../../models/item.interface';
 })
 export class ItemComponent {
   @Input({ required: true }) item!: Item;
+
   count = 0;
   onD() {
     if (this.count > 0) {

@@ -9,10 +9,12 @@
   <div class="object-left-top bg-yellow-300 w-40 h-30">
     <div>{{ item.name }}</div>
 
-    <div>ingr:{{ item.ingr }}</div>
+    <div>ingreadints:{{ item.ingr }}</div>
     <div>price:{{ item.price }}</div>
     <div>quantity:{{ item.quantity }}</div>
   </div>
+  <img [src]="item.img" class="object-left-top bg-yellow-300 w-20 h-30" />
+
   <button
     class="bg-orange-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
     (click)="onChange('-')"
@@ -26,5 +28,4 @@
   >
     {{ count }}
   </div>
-  <!-- <img ngSrc="item.img" class="object-left-top bg-yellow-300 w-100 h-100"></img> -->
 </div>
