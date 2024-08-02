@@ -25,32 +25,24 @@ export class AppComponent {
   typesList!: string[];
   typesChosen!: string[];
   searchValue: string = '';
+  filteredList: Item[] = [];
   itemSrv = inject(ItemService);
   constructor() {
     this.itemsList = this.itemSrv.getItems();
     this.typesList = this.itemsList.map((i) => i.type);
     this.typesList = [...new Set(this.typesList)];
-
+    this.filteredList = this.itemsList;
     this.typesChosen = this.typesList;
   }
 
   handleTypes(resultTypes: string[]) {
-    console.log(resultTypes.length < 0);
-    if (resultTypes.length == 0) {
+    console.log(resultTypes.length);
+    if (!resultTypes.length) {
       this.typesChosen = this.typesList;
-      // this.itemsList = this.itemSrv.getItems();
-      // return;
-    }
-    // if (resultTypes.length) {
-    else {
+    } else {
       this.typesChosen = resultTypes;
       console.log(this.typesChosen);
     }
-    // this.itemsList = this.itemSrv
-    //   .getItems()
-    //   .filter((e) => this.typesChosen.includes(e.type));
-    // console.log(this.itemsList);
-    // }
 
     this.getFilteredElements();
   }
@@ -62,20 +54,10 @@ export class AppComponent {
   }
 
   getFilteredElements(): void {
-    this.itemsList = this.itemSrv
-      .getItems()
-      .filter(
-        (e) =>
-          this.typesChosen.includes(e.type) &&
-          e.name.toLowerCase().includes(this.searchValue.toLowerCase())
-      );
-
-    if (this.searchValue != '') {
-      this.itemsList = this.itemsList.filter((e) =>
+    this.filteredList = this.itemsList.filter(
+      (e) =>
+        this.typesChosen.includes(e.type) &&
         e.name.toLowerCase().includes(this.searchValue.toLowerCase())
-      );
-    }
-
-    console.log(this.itemSrv.getItems());
+    );
   }
 }

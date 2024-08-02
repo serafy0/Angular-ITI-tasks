@@ -4,8 +4,8 @@
   (sendChosenEvent)="handleTypes($event)"
 />
 
-<div class="w-full h-full flex flex-col items-center content-center space-y-5">
-  @for (item of itemsList; track item.id) {
+<div class="w-full h-full flex-wrap flex flex-wrap justify-evenly">
+  @for (item of filteredList; track item.id) {
   <app-item [item]="item" />
   } @empty {
   <li>There are no items.</li>

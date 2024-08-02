@@ -31,7 +31,7 @@ export class ItemService {
 
     {
       id: 5,
-      name: 'burger',
+      name: 'beef burger',
       ingr: ['beef', 'buns'],
       price: 30,
       quantity: 10,
@@ -39,6 +39,17 @@ export class ItemService {
       type: 'burger',
       img: 'https://www.allrecipes.com/thmb/8fe_5pLNz2eHcpknNhL52fdq5hE=/0x512/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/25473-the-perfect-basic-burger-DDMFS-4x3-56eaba3833fd4a26a82755bcd0be0c54.jpg',
     },
+    {
+      id: 7,
+      name: 'chicken burger',
+      ingr: ['beef', 'buns'],
+      price: 30,
+      quantity: 10,
+      available: true,
+      type: 'burger',
+      img: 'https://www.kitchensanctuary.com/wp-content/uploads/2019/08/Crispy-Chicken-Burger-tall-FS-4512.webp',
+    },
+
     {
       id: 4,
       name: 'chocolate ice cream',
