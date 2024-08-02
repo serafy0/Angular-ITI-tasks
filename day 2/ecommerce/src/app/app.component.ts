@@ -35,12 +35,24 @@ export class AppComponent {
   }
 
   handleTypes(resultTypes: string[]) {
-    this.typesChosen = resultTypes;
-    console.log(this.typesChosen);
-    this.itemsList = this.itemSrv
-      .getItems()
-      .filter((e) => this.typesChosen.includes(e.type));
-    console.log(this.itemsList);
+    console.log(resultTypes.length < 0);
+    if (resultTypes.length == 0) {
+      this.typesChosen = this.typesList;
+      // this.itemsList = this.itemSrv.getItems();
+      // return;
+    }
+    // if (resultTypes.length) {
+    else {
+      this.typesChosen = resultTypes;
+      console.log(this.typesChosen);
+    }
+    // this.itemsList = this.itemSrv
+    //   .getItems()
+    //   .filter((e) => this.typesChosen.includes(e.type));
+    // console.log(this.itemsList);
+    // }
+
+    this.getFilteredElements();
   }
 
   handleSearch(result: string) {
@@ -57,6 +69,12 @@ export class AppComponent {
           this.typesChosen.includes(e.type) &&
           e.name.toLowerCase().includes(this.searchValue.toLowerCase())
       );
+
+    if (this.searchValue != '') {
+      this.itemsList = this.itemsList.filter((e) =>
+        e.name.toLowerCase().includes(this.searchValue.toLowerCase())
+      );
+    }
 
     console.log(this.itemSrv.getItems());
   }

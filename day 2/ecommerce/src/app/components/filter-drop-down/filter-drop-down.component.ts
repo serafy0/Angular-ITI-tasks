@@ -20,6 +20,7 @@ export class FilterDropDownComponent {
     console.log('toggle');
   }
   onCheck(event: Event) {
+    console.log(event);
     if (this.allChecked) {
       return;
     }
