@@ -11,7 +11,6 @@ export class FilterDropDownComponent {
   dropdownOpen = false;
 
   @Input() typeList!: string[];
-  // @Input() typeListReal!: string[];
   filterChosen: string[] = [];
   @Output() sendChosenEvent = new EventEmitter<string[]>();
   allChecked: boolean = false;

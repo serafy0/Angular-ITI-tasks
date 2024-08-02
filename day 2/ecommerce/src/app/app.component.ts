@@ -1,5 +1,4 @@
-import { Component, inject, OnChanges, SimpleChanges } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
 import { ItemComponent } from './components/item/item.component';
 import { ItemService } from './services/item.service';
 import { Item } from './models/item.interface';
@@ -10,7 +9,6 @@ import { FooterComponent } from './components/footer/footer.component';
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet,
     ItemComponent,
     NavbarComponent,
     FilterDropDownComponent,
@@ -19,7 +17,7 @@ import { FooterComponent } from './components/footer/footer.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'ecommerce';
   itemsList!: Item[];
   typesList!: string[];
@@ -27,7 +25,8 @@ export class AppComponent {
   searchValue: string = '';
   filteredList: Item[] = [];
   itemSrv = inject(ItemService);
-  constructor() {
+
+  ngOnInit(): void {
     this.itemsList = this.itemSrv.getItems();
     this.typesList = this.itemsList.map((i) => i.type);
     this.typesList = [...new Set(this.typesList)];
