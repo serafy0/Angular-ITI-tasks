@@ -25,6 +25,7 @@ export class ItemService {
       price: 20,
       quantity: 10,
       available: true,
+      type: 'oriental',
       img: 'https://www.maggiarabia.com/sites/default/files/styles/image_375_400/public/srh_recipes/e59c09444892a72653813f130a2d9ae2.png?h=4f5b30f1&itok=94MGwFrJ',
     },
   ];

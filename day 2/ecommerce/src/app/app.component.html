@@ -1,7 +1,17 @@
-<div class="flex flex-col">
+<app-navbar (searchChange)="handleSearch($event)" />
+<app-filter-drop-down
+  [typeList]="typesList"
+  (sendChosenEvent)="handleTypes($event)"
+/>
+
+<div class="w-full flex flex-col items-center content-center space-y-5">
   @for (item of itemsList; track item.id) {
   <app-item [item]="item" />
   } @empty {
   <li>There are no items.</li>
   }
 </div>
+
+<footer class="w-full bg-gray-800 text-white py-4 absolute bottom-0 left-0">
+  <app-footer />
+</footer>

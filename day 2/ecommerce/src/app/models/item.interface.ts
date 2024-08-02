@@ -7,7 +7,7 @@ export interface Item {
   available?: boolean;
   size?: string;
   img: string;
-  type?: string;
+  type: string;
 }
 
 enum Sizes {

@@ -1,0 +1,20 @@
+<div>
+  <button (click)="toggleDropdown()">show filters</button>
+  @if(dropdownOpen){
+  <h2>pick filters</h2>
+  <fieldset>
+    <legend>Choose your interests</legend>
+    @for(type of typeList;track type){
+    <div>
+      <input
+        (change)="onCheck($event)"
+        type="checkbox"
+        [id]="type"
+        [value]="type"
+      />
+      <label [for]="type">{{ type }}</label>
+    </div>
+    }
+  </fieldset>
+  }
+</div>
