@@ -29,4 +29,8 @@ export class ItemComponent {
       this.onD();
     }
   }
+
+  onOrder() {
+    console.log(this.count);
+  }
 }

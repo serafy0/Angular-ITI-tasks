@@ -1,20 +1,24 @@
-<div>
-  <button (click)="toggleDropdown()">show filters</button>
+<div class="flex flex-col">
+  <button
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-20 rounded"
+    (click)="toggleDropdown()"
+  >
+    show filters
+  </button>
   @if(dropdownOpen){
-  <h2>pick filters</h2>
-  <fieldset>
-    <legend>Choose your interests</legend>
+  <div class="flex flex-row space-x-1">
     @for(type of typeList;track type){
-    <div>
+    <div class="bg-blue-700">
       <input
+        class="w-7 h-7 border-red rounded object-fill"
         (change)="onCheck($event)"
         type="checkbox"
         [id]="type"
         [value]="type"
       />
-      <label [for]="type">{{ type }}</label>
+      <label class="ms-2 text-2xl font-medium" [for]="type">{{ type }}</label>
     </div>
     }
-  </fieldset>
+  </div>
   }
 </div>
