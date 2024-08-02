@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Item } from '../../models/item.interface';
+import { ItemService } from '../../services/item.service';
 @Component({
   selector: 'app-item',
   standalone: true,
@@ -9,6 +10,7 @@ import { Item } from '../../models/item.interface';
 })
 export class ItemComponent {
   @Input({ required: true }) item!: Item;
+  itemSrv = inject(ItemService);
 
   count = 0;
   onD() {
@@ -31,6 +33,6 @@ export class ItemComponent {
   }
 
   onOrder() {
-    console.log(this.count);
+    this.itemSrv.updateItems(this.item!.id, this.count);
   }
 }

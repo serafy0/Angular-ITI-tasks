@@ -29,6 +29,8 @@ export class AppComponent {
   constructor() {
     this.itemsList = this.itemSrv.getItems();
     this.typesList = this.itemsList.map((i) => i.type);
+    this.typesList = [...new Set(this.typesList)];
+
     this.typesChosen = this.typesList;
   }
 
@@ -38,6 +40,7 @@ export class AppComponent {
     this.itemsList = this.itemSrv
       .getItems()
       .filter((e) => this.typesChosen.includes(e.type));
+    console.log(this.itemsList);
   }
 
   handleSearch(result: string) {
@@ -51,13 +54,10 @@ export class AppComponent {
       .getItems()
       .filter(
         (e) =>
-          this.typesChosen.includes(e.type) && e.name.includes(this.searchValue)
+          this.typesChosen.includes(e.type) &&
+          e.name.toLowerCase().includes(this.searchValue.toLowerCase())
       );
 
-    if (this.searchValue != '') {
-      this.itemsList.filter((e) =>
-        e.name.toLowerCase().includes(this.searchValue.toLowerCase())
-      );
-    }
+    console.log(this.itemSrv.getItems());
   }
 }

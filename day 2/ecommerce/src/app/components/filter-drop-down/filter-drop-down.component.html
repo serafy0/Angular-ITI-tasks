@@ -19,6 +19,16 @@
       <label class="ms-2 text-2xl font-medium" [for]="type">{{ type }}</label>
     </div>
     }
+    <div class="bg-blue-700">
+      <input
+        class="w-7 h-7 border-red rounded object-fill"
+        (change)="checkAll($event)"
+        type="checkbox"
+        id="All"
+        value="All"
+      />
+      <label class="ms-2 text-2xl font-medium" for="All">All</label>
+    </div>
   </div>
   }
 </div>
