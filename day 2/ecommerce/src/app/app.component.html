@@ -1,16 +1,5 @@
 <app-navbar (searchChange)="handleSearch($event)" />
-<app-filter-drop-down
-  [typeList]="typesList"
-  (sendChosenEvent)="handleTypes($event)"
-/>
-
-<div class="w-full h-full flex-wrap flex flex-wrap justify-evenly">
-  @for (item of filteredList; track item.id) {
-  <app-item [item]="item" />
-  } @empty {
-  <li>There are no items.</li>
-  }
-</div>
+<app-main [searchValue]="searchValue"></app-main>
 
 <footer class="w-full bg-gray-800 text-white py-4 bottom-0 left-0">
   <app-footer />

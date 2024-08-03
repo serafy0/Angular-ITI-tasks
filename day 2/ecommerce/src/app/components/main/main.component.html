@@ -1,0 +1,12 @@
+<app-filter-drop-down
+  [typeList]="typesList"
+  (sendChosenEvent)="handleTypes($event)"
+/>
+
+<div class="w-full h-full flex-wrap flex flex-wrap justify-evenly">
+  @for (item of filteredList; track item.id) {
+  <app-item [item]="item" />
+  } @empty {
+  <li>There are no items.</li>
+  }
+</div>
