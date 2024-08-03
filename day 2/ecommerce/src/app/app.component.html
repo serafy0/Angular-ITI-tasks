@@ -1,5 +1,7 @@
 <app-navbar (searchChange)="handleSearch($event)" />
-<app-main [searchValue]="searchValue"></app-main>
+<!-- <app-main [searchValue]="searchValue"></app-main> -->
+
+<router-outlet></router-outlet>
 
 <footer class="w-full bg-gray-800 text-white py-4 bottom-0 left-0">
   <app-footer />
