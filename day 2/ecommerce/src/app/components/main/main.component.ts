@@ -22,10 +22,11 @@ export class MainComponent implements OnInit, OnChanges {
   itemsList!: Item[];
   typesList!: string[];
   typesChosen!: string[];
-  @Input() searchValue!: string;
+  @Input() searchValue: string = '';
   filteredList: Item[] = [];
   itemSrv = inject(ItemService);
   ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
     this.getFilteredElements();
   }
 
