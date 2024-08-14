@@ -24,7 +24,6 @@ export class MainComponent implements OnInit, OnChanges {
   typesChosen!: string[];
   @Input() searchValue: string = '';
   filteredList: Item[] = [];
-  itemSrv = inject(ItemService);
   itemAPISrv = inject(ItemApiService);
 
   ngOnChanges(changes: SimpleChanges): void {

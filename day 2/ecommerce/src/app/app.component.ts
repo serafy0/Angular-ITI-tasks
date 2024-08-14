@@ -1,7 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ItemComponent } from './components/item/item.component';
-import { ItemService } from './services/item.service';
-import { Item } from './models/item.interface';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FilterDropDownComponent } from './components/filter-drop-down/filter-drop-down.component';
 import { FooterComponent } from './components/footer/footer.component';

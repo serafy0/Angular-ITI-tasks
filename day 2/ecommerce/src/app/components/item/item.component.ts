@@ -1,6 +1,5 @@
 import { Component, inject, Input } from '@angular/core';
 import { Item } from '../../models/item.interface';
-import { ItemService } from '../../services/item.service';
 import { ItemApiService } from '../../services/itemApi/item-api.service';
 @Component({
   selector: 'app-item',
@@ -11,7 +10,6 @@ import { ItemApiService } from '../../services/itemApi/item-api.service';
 })
 export class ItemComponent {
   @Input({ required: true }) item!: Item;
-  itemSrv = inject(ItemService);
   itemApiSrc = inject(ItemApiService);
 
   count = 0;
