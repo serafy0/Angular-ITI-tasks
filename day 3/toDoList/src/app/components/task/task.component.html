@@ -4,7 +4,9 @@
     <!-- <mat-card-subtitle>{{ task.name }}</mat-card-subtitle> -->
   </mat-card-header>
   <mat-card-actions>
-    <button mat-button (click)="onEdit()">edit</button>
+    <button mat-button routerLink="/form" [queryParams]="{ id: task.id }">
+      edit
+    </button>
     <button mat-button (click)="onDelete()">delete</button>
   </mat-card-actions>
 </mat-card>

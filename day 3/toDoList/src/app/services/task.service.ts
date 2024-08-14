@@ -12,6 +12,10 @@ export class TaskService {
   getTasks(): Observable<any> {
     return this.httpClient.get('http://localhost:3000/tasks');
   }
+
+  getOneTask(id: number): Observable<any> {
+    return this.httpClient.get('http://localhost:3000/tasks/' + id);
+  }
   addTasks(data: Tasks): Observable<any> {
     return this.httpClient.post('http://localhost:3000/tasks/', data);
   }

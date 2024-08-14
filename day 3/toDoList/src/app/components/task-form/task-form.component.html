@@ -1,0 +1,13 @@
+<form (ngSubmit)="setTask($event)">
+  <mat-form-field class="form">
+    <mat-label hintLabel="Max 255 characters">add task</mat-label>
+    <textarea
+      name="name"
+      maxlength="255"
+      [(ngModel)]="name"
+      matInput
+    ></textarea>
+
+    <button type="submit" mat-flat-button>submit</button>
+  </mat-form-field>
+</form>
