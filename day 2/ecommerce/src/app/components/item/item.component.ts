@@ -1,6 +1,7 @@
 import { Component, inject, Input } from '@angular/core';
 import { Item } from '../../models/item.interface';
 import { ItemService } from '../../services/item.service';
+import { ItemApiService } from '../../services/itemApi/item-api.service';
 @Component({
   selector: 'app-item',
   standalone: true,
@@ -11,6 +12,7 @@ import { ItemService } from '../../services/item.service';
 export class ItemComponent {
   @Input({ required: true }) item!: Item;
   itemSrv = inject(ItemService);
+  itemApiSrc = inject(ItemApiService);
 
   count = 0;
   onD() {
@@ -33,6 +35,14 @@ export class ItemComponent {
   }
 
   onOrder() {
-    this.itemSrv.updateItems(this.item!.id, this.count);
+    // this.itemSrv.updateItems(this.item!.id, this.count);
+    let updatedItem: Item = this.item;
+    updatedItem.quantity = updatedItem.quantity - this.count;
+    this.itemApiSrc.updateItems(updatedItem).subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+    });
+    this.count = 0;
   }
 }
