@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.large-text {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 40px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+button {
+  font-size: 1.2rem;
+  margin-left: 5px;
+}
+
+@media (max-width: 600px) {
+  .large-text {
+    font-size: 2rem;
+  }
+  .fab-text {
+    display: none;
+    font-size: 0px;
+  }
+  .icon {
+    padding-left: 16px;
+  }
+}
