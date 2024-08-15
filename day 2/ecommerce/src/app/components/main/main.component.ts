@@ -10,6 +10,7 @@ import { Item } from '../../models/item.interface';
 import { FilterDropDownComponent } from '../filter-drop-down/filter-drop-down.component';
 import { ItemComponent } from '../item/item.component';
 import { ItemApiService } from '../../services/itemApi/item-api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -18,21 +19,16 @@ import { ItemApiService } from '../../services/itemApi/item-api.service';
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
 })
-export class MainComponent implements OnInit, OnChanges {
+export class MainComponent implements OnInit {
   itemsList!: Item[];
   typesList!: string[];
   typesChosen!: string[];
-  @Input() searchValue: string = '';
-  filteredList: Item[] = [];
+  searchValue: string = '';
+  filteredList?: Item[];
   itemAPISrv = inject(ItemApiService);
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-    this.getFilteredElements();
-  }
+  route = inject(ActivatedRoute);
 
   ngOnInit(): void {
-    // this.itemsList = this.itemSrv.getItems();
     this.itemAPISrv.getItems().subscribe({
       next: (res) => {
         this.itemsList = res;
@@ -42,6 +38,12 @@ export class MainComponent implements OnInit, OnChanges {
         this.typesList = [...new Set(this.typesList)];
         this.filteredList = this.itemsList;
         this.typesChosen = this.typesList;
+
+        this.route.queryParams.subscribe((params) => {
+          this.searchValue = params['search'];
+          console.log(this.searchValue);
+          this.getFilteredElements();
+        });
       },
     });
   }

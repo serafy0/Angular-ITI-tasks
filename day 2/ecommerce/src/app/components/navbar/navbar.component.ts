@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { ItemApiService } from '../../services/itemApi/item-api.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,10 +10,15 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
-  @Output() searchChange = new EventEmitter<string>();
+  itemApiService = inject(ItemApiService);
+  router = inject(Router);
 
   onKeyUp(event: KeyboardEvent) {
     let search = (event.target as HTMLInputElement).value;
-    this.searchChange.emit(search);
+    // this.searchChange.emit(search);
+    this.router.navigate([], {
+      queryParams: { search },
+      queryParamsHandling: 'merge',
+    });
   }
 }

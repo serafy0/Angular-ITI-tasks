@@ -21,11 +21,4 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'ecommerce';
-  searchValue: string = '';
-
-  handleSearch(result: string) {
-    console.log(result);
-    this.searchValue = result;
-    console.log('sending', result);
-  }
 }

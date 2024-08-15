@@ -1,4 +1,5 @@
 {
+  "users": [],
   "items": [
     {
       "id": "1",
@@ -22,7 +23,7 @@
         "pasta"
       ],
       "price": 20,
-      "quantity": 5,
+      "quantity": 2,
       "type": "oriental",
       "available": true,
       "img": "https://www.maggiarabia.com/sites/default/files/styles/image_375_400/public/srh_recipes/e59c09444892a72653813f130a2d9ae2.png?h=4f5b30f1&itok=94MGwFrJ"
